@@ -1,8 +1,8 @@
 // import React from 'react'
-// import { Navigate } from 'react-router-dom';
+import { lazy } from 'react'
 import Home from '@/views/Home'
-import Login from '@/views/Login'
-import Board from '@/views/Board'
+// import Login from '@/views/Login'
+// import Board from '@/views/Board'
 import Nomatch from '@/views/Nomatch'
 
 const routes = [
@@ -14,12 +14,12 @@ const routes = [
   {
     path: '/login',
     exact: true,
-    component: Login
+    component: lazy(() => import('@/views/Login'))
   },
   {
     path: '/board',
     exact: true,
-    component: Board
+    component: lazy(() => import('@/views/Login'))
   },
   {
     path: '*',

@@ -1,16 +1,19 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Spin } from "antd"
 import routes from '@/config/router'
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route} />
-        ))}
-      </Switch>
-    </Router>
+    <React.Suspense fallback={<Spin tip="Loading..." />}>
+      <Router>
+        <Switch>
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+        </Switch>
+      </Router>
+    </React.Suspense>
   )
 }
 
